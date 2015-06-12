@@ -25,8 +25,8 @@ class Parser
   def initialize(file_questions, file_answers)
     @file_questions = file_questions
     @file_answers = file_answers
-    @questions = []
-    @answers = []
+    @questions = read_question
+    @answers = read_answer
   end
 
   def read_question
@@ -40,8 +40,32 @@ class Parser
   end
 
   def initialize_deck
+    cards = Hash.new
+    for i in 0...@answers.length
+      cards[@questions[i]] = @answers[i]
+    end
+    cards.each do  |key, value|
+      puts key + " : " + value
+    end
     # iterar entre @questions y @answers para instanciar un Card e ir metiendolo
     # un array "cards"
     Deck.new(cards)
   end
 end
+
+
+parser = Parser.new("Preguntas.csv", "Respuestas.csv")
+
+parser.initialize_deck
+
+
+
+
+
+
+
+
+
+
+
+
