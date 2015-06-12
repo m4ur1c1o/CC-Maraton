@@ -30,13 +30,13 @@ class Parser
   end
 
   def read_question
-    # lee todas las preguntas del archivo @file_questions
-    # y las guarda en una lista llamada @questions
+    question = CSV.read("Preguntas.csv", "r")
+    question.flatten!
   end
 
   def read_answer
-    # lee todas las respuestas del archivo @file_answers
-    # y las guarda en una lista llamada @answers
+    answer = CSV.read("Respuestas.csv", "r")
+    answer.flatten!
   end
 
   def initialize_deck
