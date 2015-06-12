@@ -5,7 +5,7 @@ class Controller
   def initialize()
     @view = View.new
     # lee el archivo e instancia su contenido en un @Deck
-    parser = Parser.new(file_q, file_a) #checar argumentos
+    parser = Parser.new(@file_questions, @file_answers)
     @deck = parser.initialize_deck
     @score = 0
     game
